@@ -44,7 +44,7 @@ public class Wavebox : MonoBehaviour {
 		if (delay < 0){
 			index += Time.deltaTime;
 			float y = Mathf.Abs (amplitudeY*Mathf.Sin (omegaY*index));
-			transform.localPosition= new Vector3(transform.localPosition.x,y,0);	
+			transform.localPosition= new Vector3(transform.localPosition.x,y,transform.localPosition.z);	
 		}
 
 
