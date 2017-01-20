@@ -222,7 +222,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1734461373408922}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 2, y: 2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4291388345620888}
@@ -280,7 +280,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514578987253300}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 2, y: 2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 4243549267297356}
@@ -594,7 +594,7 @@ MonoBehaviour:
   cooldown: 0
   waveLayer: Waves
   hapticDuration: 0.5
-  hapticStrength: 0
+  hapticStrength: 0.5
 --- !u!114 &114045301048111512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -735,7 +735,7 @@ MonoBehaviour:
   cooldown: 0
   waveLayer: Waves
   hapticDuration: 0.5
-  hapticStrength: 0.506
+  hapticStrength: 0.5
 --- !u!114 &114684893814690864
 MonoBehaviour:
   m_ObjectHideFlags: 1
