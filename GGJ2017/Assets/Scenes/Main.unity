@@ -272,9 +272,9 @@ MonoBehaviour:
   _initialDelay: 3
   _delayReductionPercentage: 0.1
   _delayReductionCountdown: 3
-  _spawnRadius: 10
-  _targetRadius: 6
-  _wavePrefab: {fileID: 1727365947138898, guid: 2920e102283423d409e32870b5882b10,
+  _spawnRadius: 50
+  _targetRadius: 10
+  _wavePrefab: {fileID: 1331089665807274, guid: 6edb4c4324856004da506c3967d2cd43,
     type: 2}
   _waveContainer: {fileID: 2057533840}
   _controller1: {fileID: 0}

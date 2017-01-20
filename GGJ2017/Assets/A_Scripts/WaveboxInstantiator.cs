@@ -4,33 +4,27 @@ using UnityEngine;
 
 public class WaveboxInstantiator : MonoBehaviour {
 
-	public GameObject prefab;
-	Vector3 spawnPos;
-	public int waveLength, waveDepth;
+    [SerializeField]
+	private GameObject _prefab;
+    [SerializeField]
+	private int _waveLength, _waveDepth;
 	// Use this for initialization
 	void Start () {
-		spawnPos = transform.position;
 		Wave ();
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
 	void Wave (){
-		var wave = new GameObject ();
-		wave.transform.position = spawnPos;
-		wave.name = "Wave";
-
-		for (int i = 0; i <waveLength; i++){
-			for(int k = 0; k<waveDepth; k++){
-				var box = Instantiate (prefab, new Vector3 (spawnPos.x + i, spawnPos.y, spawnPos.z + k), Quaternion.identity);
-				box.transform.parent = wave.transform;
+        var wave = new GameObject("Wave");
+	    wave.transform.position = transform.position;
+        wave.transform.rotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0, -45, 0));
+        wave.transform.parent = transform;
+		for (int i = 0; i <_waveLength; i++){
+			for(int k = 0; k<_waveDepth; k++){
+				var box = Instantiate (_prefab);
+                box.transform.parent = wave.transform;
+                box.transform.localPosition = new Vector3(i, transform.position.y, k);
 				box.GetComponent<Wavebox> ().delay = (i * 0.5f) + (k * 0.5f);
 			}
 		}
-
 	}
 }
