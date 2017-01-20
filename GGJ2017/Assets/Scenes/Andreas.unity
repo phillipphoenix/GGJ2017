@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 617512152}
   - component: {fileID: 617512151}
   - component: {fileID: 617512150}
+  - component: {fileID: 617512154}
   m_Layer: 0
   m_Name: WaveBox
   m_TagString: Untagged
@@ -122,7 +123,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 3cd052e3aab8f461d93b8a8c57ab09cb, type: 2}
+  - {fileID: 2100000, guid: 14a2c625e047f40af823adf81180d3f9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -172,6 +173,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &617512154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617512149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b756d6f7ddaa749a39adcba7d1bf04ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mats:
+  - {fileID: 2100000, guid: 14a2c625e047f40af823adf81180d3f9, type: 2}
+  - {fileID: 2100000, guid: 00354476376c246108ebe66ca054792d, type: 2}
+  - {fileID: 2100000, guid: da6fe65073a1d4f1ba572f9acb90180f, type: 2}
+  - {fileID: 2100000, guid: cf5802fa4bd5c46229fe393e78a0ed96, type: 2}
+  - {fileID: 2100000, guid: ba26eb0d3475c45b880d467723e3889b, type: 2}
+  - {fileID: 2100000, guid: 393118f89dfc9417cab3ad0b12849319, type: 2}
+  - {fileID: 2100000, guid: 9470c1f3d131743f28eb59e63170cee5, type: 2}
+  speed: 0.3
+  delay: 0
+  amplitudeY: 2
+  omegaY: 2
 --- !u!1 &765854136
 GameObject:
   m_ObjectHideFlags: 0
@@ -286,9 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 598301138b0a54b418fb89222d9e29a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1477814096185714, guid: 64137ec75b5f34d5e8675152b624b60d, type: 2}
-  waveLength: 10
-  waveDepth: 10
 --- !u!4 &1727219572
 Transform:
   m_ObjectHideFlags: 0
