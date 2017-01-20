@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65409355648245176}
   - component: {fileID: 23652562753941966}
   - component: {fileID: 114542017061927848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WaveBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
