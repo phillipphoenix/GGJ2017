@@ -25,7 +25,7 @@ public class WaveSpawner : MonoBehaviour
     private GameObject _waveContainer;
 
     private bool _spawnerStarted;
-    private float _currentDelay;
+    private float _currentDelay = -1f;
     private float _delayTimer;
     private float _delayReductionTimer;
 
@@ -36,7 +36,6 @@ public class WaveSpawner : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-	    _currentDelay = _initialDelay;
 	}
 	
 	// Update is called once per frame
@@ -77,6 +76,12 @@ public class WaveSpawner : MonoBehaviour
         // When the timer passed the delay, spawn a wave (and more!).
         if (_delayTimer >= _currentDelay)
         {
+            // If initial wave, set delay to initial delay.
+            if (_currentDelay < 0)
+            {
+                _currentDelay = _initialDelay;
+            }
+
             // Reset delay timer.
             _delayTimer = 0;
 
