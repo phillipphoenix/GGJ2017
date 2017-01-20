@@ -9,14 +9,21 @@ public class Shield : MonoBehaviour {
     public float duration;
     public float cooldown;
     public string waveLayer = "Waves";
+    [Tooltip("Duration of the haptic pulse in SECONDS.")]
+    public float hapticDuration = 0.5f;
+    [Range(0.0f,1.0f)]
+    public float hapticStrength = 0.5f;
 
     MeshFilter filter;
     MeshRenderer rend;
+    SteamVR_Controller.Device device;
+    Coroutine activeHapticCoroutine;
 
     void Start() {
         filter = GetComponent<MeshFilter>();
         rend = GetComponent<MeshRenderer>();
-        SetupForWireframeShader();
+        device = SteamVR_Controller.Input((int)controller.controllerIndex);
+        //SetupForWireframeShader();
         if (controller) {
             controller.TriggerClicked += EnableShield;
             controller.TriggerUnclicked += DisableShield;
@@ -57,7 +64,20 @@ public class Shield : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.layer == LayerMask.NameToLayer(waveLayer)) {
+            if(activeHapticCoroutine == null) {
+                activeHapticCoroutine = StartCoroutine(StartHapticVibrationCoroutine(hapticDuration, hapticStrength));
+            }            
             Destroy(other.gameObject);
         }
+    }
+
+    IEnumerator StartHapticVibrationCoroutine(float duration, float strength) {
+
+        for (float i = 0; i < duration; i += Time.deltaTime) {
+            device.TriggerHapticPulse((ushort)Mathf.Lerp(0, 3999, strength));
+            yield return null;
+        }
+
+        activeHapticCoroutine = null;
     }
 }
