@@ -19,7 +19,7 @@ public class RumblerTest : MonoBehaviour
 	void Start ()
 	{
 	    _controllerActions = _controllerGo.GetComponent<VRTK_ControllerActions>();
-		_rumbler = new Rumbler(_controllerActions);
+		_rumbler = new Rumbler(this, _controllerActions);
 	}
 
     [ContextMenu("Start rumble tick test")]
@@ -38,6 +38,18 @@ public class RumblerTest : MonoBehaviour
     private void StartRumbleIntervalTest()
     {
         StartCoroutine(RumbleIntervalTester());
+    }
+
+    [ContextMenu("Start rumble build up test")]
+    private void StartRumbleBuildUpTest()
+    {
+        _rumbler.StartRumbleBuildUp(5, 0.1f, 0.001f);
+        //Invoke("StopRumbleBuildUp", 2);
+    }
+
+    private void StopRumbleBuildUp()
+    {
+        _rumbler.StopRumbleBuildUp();
     }
 
     private IEnumerator RumbleTickTester()
