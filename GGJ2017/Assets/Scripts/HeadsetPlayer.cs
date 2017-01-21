@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider))]
 public class HeadsetPlayer : MonoBehaviour
@@ -14,6 +15,8 @@ public class HeadsetPlayer : MonoBehaviour
     private bool _spawnPulseOnHit = true;
     [SerializeField]
     private GameObject _pulsePrefab;
+    [SerializeField]
+    private bool _reloadLevelUponDeath = true;
 
     public UnityEvent OnHitPointsZeroEvent;
 
@@ -28,6 +31,11 @@ public class HeadsetPlayer : MonoBehaviour
             {
                 Debug.Log("HeadsetPlayer has lost all hit points.");
                 OnHitPointsZeroEvent.Invoke();
+                if (_reloadLevelUponDeath)
+                {
+                    Debug.Log("Reloading scene!");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                }
             }
         }
     }

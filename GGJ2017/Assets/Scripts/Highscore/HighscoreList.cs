@@ -20,6 +20,7 @@ public class HighscoreList : MonoBehaviour {
         // Make sure only one highscore list exists.
         if (Instance != null)
         {
+            Debug.Log("Destroying self (HighscoreList), because another already exists.");
             Destroy(gameObject);
         }
         Instance = this;
