@@ -193,7 +193,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  pumpSpeed: 2
+  threshold: 0.2
   direction: up
+  audioMixerGroup: 1
+  baseSize: {x: 200, y: 200, z: 200}
+  changeSize: {x: 250, y: 250, z: 250}
+  music: {fileID: 0}
 --- !u!114 &114291719811196450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,7 +212,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
+  pumpSpeed: 2
+  threshold: 0.15
   direction: down
+  audioMixerGroup: 3
+  baseSize: {x: 100, y: 100, z: 100}
+  changeSize: {x: 150, y: 150, z: 150}
+  music: {fileID: 0}
 --- !u!135 &135059419653748980
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -24,6 +24,8 @@ public class Rotator : MonoBehaviour {
 		if(delay < 0)
 		t.Rotate (Vector3.forward * Time.deltaTime * speed);
 		}
+
+
 	}
 
 	public void StartRotation(){

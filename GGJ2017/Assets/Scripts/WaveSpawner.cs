@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -26,6 +27,13 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     private GameObject _waveContainer;
 
+    [SerializeField]
+    private GameObject _canvas;
+    [SerializeField]
+    private GameObject _countdownGo;
+    [SerializeField]
+    private Text _countdownNumberText;
+
     private bool _spawnerStarted;
     private bool _rotationStarted;
     private float _currentDelay = -1f;
@@ -35,6 +43,12 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     private SteamVR_TrackedController _controller1, _controller2;
     private float _triggerPressedTimer;
+
+    [SerializeField]
+    private float _minWaveSpawnAngle = 20;
+    [SerializeField]
+    private float _maxWaveSpawnAngle = 90;
+    private float _previousWaveSpawnAngle;
 
     public void Awake()
     {
@@ -83,16 +97,39 @@ public class WaveSpawner : MonoBehaviour
         // If the timer reaches the countdown the first wave will spawn.
         if (_controller1 != null && _controller1.triggerPressed && _controller2 != null && _controller2.triggerPressed)
         {
+            HandleCountdownUI(true);
             _triggerPressedTimer += Time.deltaTime;
             if (_triggerPressedTimer >= _startCountdown)
             {
                 _spawnerStarted = true;
+                if (_canvas != null)
+                {
+                    _canvas.SetActive(false);
+                }
             }
         }
         else
         {
+            HandleCountdownUI(false);
             _triggerPressedTimer = 0;
+            if (_canvas != null)
+            {
+                _canvas.SetActive(true);
+            }
         }
+    }
+
+    private void HandleCountdownUI(bool pressed)
+    {
+        if (_canvas == null)
+        {
+            return;
+        }
+
+        // If buttons pressed, set countdown object to active.
+        _countdownGo.SetActive(pressed);
+
+        _countdownNumberText.text = ((int)(_startCountdown - _triggerPressedTimer)).ToString();
     }
 
     private void HandleWaveSpawning()
@@ -133,8 +170,14 @@ public class WaveSpawner : MonoBehaviour
     {
         // Get random position on the spawn circle.
         Vector3 center = transform.position;
-        float angle = Random.value * 360;
+        // Random angle between a min and max angle from the last used angle.
+        float angle = _previousWaveSpawnAngle + Random.Range(_minWaveSpawnAngle, _maxWaveSpawnAngle) * (Random.value > .5f ? -1 : 1);
         Vector3 pos = GetPosOnCircle(center, _spawnRadius, angle);
+        if (Mathf.Abs(angle - _previousWaveSpawnAngle) > _maxWaveSpawnAngle)
+        {
+            Debug.Log("New angle for wave is too large. Prev: " + _previousWaveSpawnAngle + ", New: " + angle + ", Diff: " + (Mathf.Abs(angle - _previousWaveSpawnAngle)));
+        }
+        _previousWaveSpawnAngle = angle;
 
         // Get look at angle.
         Vector3 posTarget = Random.insideUnitSphere * _targetRadius;
