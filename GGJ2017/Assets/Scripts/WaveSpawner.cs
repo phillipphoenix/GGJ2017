@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -25,6 +26,13 @@ public class WaveSpawner : MonoBehaviour
     private GameObject _wavePrefab;
     [SerializeField]
     private GameObject _waveContainer;
+
+    [SerializeField]
+    private GameObject _canvas;
+    [SerializeField]
+    private GameObject _countdownGo;
+    [SerializeField]
+    private Text _countdownNumberText;
 
     private bool _spawnerStarted;
     private bool _rotationStarted;
@@ -83,16 +91,39 @@ public class WaveSpawner : MonoBehaviour
         // If the timer reaches the countdown the first wave will spawn.
         if (_controller1 != null && _controller1.triggerPressed && _controller2 != null && _controller2.triggerPressed)
         {
+            HandleCountdownUI(true);
             _triggerPressedTimer += Time.deltaTime;
             if (_triggerPressedTimer >= _startCountdown)
             {
                 _spawnerStarted = true;
+                if (_canvas != null)
+                {
+                    _canvas.SetActive(false);
+                }
             }
         }
         else
         {
+            HandleCountdownUI(false);
             _triggerPressedTimer = 0;
+            if (_canvas != null)
+            {
+                _canvas.SetActive(true);
+            }
         }
+    }
+
+    private void HandleCountdownUI(bool pressed)
+    {
+        if (_canvas == null)
+        {
+            return;
+        }
+
+        // If buttons pressed, set countdown object to active.
+        _countdownGo.SetActive(pressed);
+
+        _countdownNumberText.text = ((int)(_startCountdown - _triggerPressedTimer)).ToString();
     }
 
     private void HandleWaveSpawning()
