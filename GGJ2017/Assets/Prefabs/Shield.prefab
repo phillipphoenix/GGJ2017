@@ -39,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1249038361285082}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 2, y: 2, z: 0.2}
+  m_LocalScale: {x: 4, y: 4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   waveLayer: Waves
   hapticDuration: 0.5
   hapticStrength: 0.5
-  pulsePrefab: {fileID: 114445661885024688, guid: 88b8a0ad5e17de941bdc1f8a1735a1c4,
+  pulsePrefab: {fileID: 1721193436655128, guid: 88b8a0ad5e17de941bdc1f8a1735a1c4,
     type: 2}
   chargeCurve:
     serializedVersion: 2
