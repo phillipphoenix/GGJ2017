@@ -14,7 +14,7 @@ public class Shield : MonoBehaviour {
     [Range(0.0f, 1.0f)]
     public float hapticStrength = 0.5f;
 
-    public Pulse pulsePrefab;
+    public GameObject pulsePrefab;
 
     public AnimationCurve chargeCurve;
     public float chargeDuration;
@@ -147,11 +147,9 @@ public class Shield : MonoBehaviour {
     void Pulse(Vector3 center) {
         // Instantiate pulse as child
         if(pulsePrefab != null) {
-            Pulse p = Instantiate(pulsePrefab);
-            p.transform.parent = transform;
-            p.transform.position = center;
-
-
+            GameObject go = Instantiate(pulsePrefab);
+            go.transform.parent = transform;
+            go.transform.position = center;
         }        
     }
 

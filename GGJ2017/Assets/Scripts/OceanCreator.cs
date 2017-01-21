@@ -51,7 +51,7 @@ public class OceanCreator : MonoBehaviour {
 			go.transform.parent = _oceanCreator.transform;
 		}
         go.transform.localPosition = pos;
-        go.transform.localEulerAngles = new Vector3(90, rotation.eulerAngles.y, rotation.eulerAngles.z);
+        go.transform.localRotation = rotation;
     }
 
 	private Vector3 GetPosOnCircle(Vector3 center, float radius, float angle)

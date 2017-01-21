@@ -22,7 +22,7 @@ public class Rotator : MonoBehaviour {
 		delay -= 0.1f;
 
 		if(delay < 0)
-		t.Rotate (Vector3.down * Time.deltaTime * speed);
+		t.Rotate (Vector3.forward * Time.deltaTime * speed);
 		}
 	}
 
