@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wavebox : MonoBehaviour {
 
 	public Material[] mats;
-	MeshRenderer renderer;
+	MeshRenderer rend;
 	int r, select = 0;
 	float timer;
 	public float speed, delay;
@@ -17,7 +17,7 @@ public class Wavebox : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		renderer = GetComponent<MeshRenderer> ();
+		rend = GetComponent<MeshRenderer> ();
 	}
 	
 	// Update is called once per frame
@@ -29,11 +29,14 @@ public class Wavebox : MonoBehaviour {
 		if(timer < 0){
 			timer = speed;
 
-			while(select == r){
-				r = Random.Range (0, mats.Length - 1);	
+			if(mats.Length > 1){
+				while(select == r){
+					r = Random.Range (0, mats.Length);	
+				}	
 			}
+
 			select = r;
-			renderer.material = mats [select];
+			rend.material = mats [select];
 
 		}
 

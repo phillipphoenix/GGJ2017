@@ -7,6 +7,7 @@ public class Rotator : MonoBehaviour {
 	Transform t;
 	public float speed;
 	float delay;
+	public bool doRotation = false;
 	// Use this for initialization
 	void Start () {
 		t = transform;
@@ -17,9 +18,15 @@ public class Rotator : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if(doRotation){
 		delay -= 0.1f;
 
 		if(delay < 0)
 		t.Rotate (Vector3.down * Time.deltaTime * speed);
+		}
+	}
+
+	void StartRotation(){
+		doRotation = true;
 	}
 }
