@@ -144,14 +144,14 @@ public class WaveSpawner : MonoBehaviour
         Gizmos.color = Color.blue;
         for (int i = 0; i < 360; i += 10)
         {
-            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _spawnRadius, i), .3f);
+            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _spawnRadius, i), .2f);
         }
 
         // Wave target circle.
         Gizmos.color = Color.red;
         for (int i = 0; i < 360; i += 10)
         {
-            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _targetRadius, i), .3f);
+            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _targetRadius, i), .2f);
         }
     }
 }
