@@ -44,6 +44,12 @@ public class WaveSpawner : MonoBehaviour
     private SteamVR_TrackedController _controller1, _controller2;
     private float _triggerPressedTimer;
 
+    [SerializeField]
+    private float _minWaveSpawnAngle = 20;
+    [SerializeField]
+    private float _maxWaveSpawnAngle = 90;
+    private float _previousWaveSpawnAngle;
+
     public void Awake()
     {
         if (Instance != null)
@@ -164,8 +170,14 @@ public class WaveSpawner : MonoBehaviour
     {
         // Get random position on the spawn circle.
         Vector3 center = transform.position;
-        float angle = Random.value * 360;
+        // Random angle between a min and max angle from the last used angle.
+        float angle = _previousWaveSpawnAngle + Random.Range(_minWaveSpawnAngle, _maxWaveSpawnAngle) * (Random.value > .5f ? -1 : 1);
         Vector3 pos = GetPosOnCircle(center, _spawnRadius, angle);
+        if (Mathf.Abs(angle - _previousWaveSpawnAngle) > _maxWaveSpawnAngle)
+        {
+            Debug.Log("New angle for wave is too large. Prev: " + _previousWaveSpawnAngle + ", New: " + angle + ", Diff: " + (Mathf.Abs(angle - _previousWaveSpawnAngle)));
+        }
+        _previousWaveSpawnAngle = angle;
 
         // Get look at angle.
         Vector3 posTarget = Random.insideUnitSphere * _targetRadius;
