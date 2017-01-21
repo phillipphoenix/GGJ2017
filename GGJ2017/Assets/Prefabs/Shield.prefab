@@ -144,8 +144,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  chargeDuration: 5
-  chargedScale: {x: 2, y: 2, z: 0.2}
+  chargeDuration: 2
+  chargedScale: {x: 4, y: 4, z: 0.4}
   shootDuration: 2
-  shootSpeed: 1
+  shootSpeed: 100
   shieldOffset: {x: 0, y: 0, z: 5}

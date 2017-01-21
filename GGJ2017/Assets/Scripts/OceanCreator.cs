@@ -45,14 +45,15 @@ public class OceanCreator : MonoBehaviour {
 		Quaternion rotation = Quaternion.LookRotation(posTarget - pos, Vector3.up);
 
 		// Spawn wave.
-		GameObject go = Instantiate(_wavePrefab, pos, rotation);
-		go.transform.eulerAngles = new Vector3 (90, go.transform.eulerAngles.y, go.transform.eulerAngles.z);
-		go.transform.position = new Vector3 (go.transform.position.x, -3, go.transform.position.z);
+		GameObject go = Instantiate(_wavePrefab);
+		//go.transform.eulerAngles = new Vector3 (90, go.transform.eulerAngles.y, go.transform.eulerAngles.z);
 		if (_oceanCreator != null)
 		{
 			go.transform.parent = _oceanCreator.transform;
 		}
-	}
+        go.transform.localPosition = pos;
+        go.transform.localEulerAngles = new Vector3(90, rotation.eulerAngles.y, rotation.eulerAngles.z);
+    }
 
 	private Vector3 GetPosOnCircle(Vector3 center, float radius, float angle)
 	{
