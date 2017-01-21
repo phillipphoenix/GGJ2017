@@ -138,6 +138,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1349684688502756, guid: e6191c84ee3286840aa9ee0079acead4,
     type: 2}
   m_PrefabInternal: {fileID: 1942595511}
+--- !u!4 &367644561 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4867537920103910, guid: e6191c84ee3286840aa9ee0079acead4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1942595511}
 --- !u!1 &480622106
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +221,78 @@ GameObject:
   m_PrefabParentObject: {fileID: 1482923285862348, guid: e6191c84ee3286840aa9ee0079acead4,
     type: 2}
   m_PrefabInternal: {fileID: 1942595511}
+--- !u!1 &1129040684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1129040685}
+  - component: {fileID: 1129040686}
+  - component: {fileID: 1129040687}
+  m_Layer: 0
+  m_Name: HeadsetPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129040685
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129040684}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 367644561}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1129040686
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129040684}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.2, z: 0}
+--- !u!114 &1129040687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1129040684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c37846a56aab6314c8bb9c931a936ebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hitPoints: 5
+  _waveLayer: Waves
+  OnHitPointsZeroEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1716948631}
+        m_MethodName: StopSpawner
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &1176593459
 Prefab:
   m_ObjectHideFlags: 0

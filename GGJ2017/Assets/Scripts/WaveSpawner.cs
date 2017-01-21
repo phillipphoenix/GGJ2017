@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner Instance { get; set; }
+
     [SerializeField]
     [Tooltip("Countdown till first wave in seconds.")]
     private float _startCountdown = 3f;
@@ -34,6 +36,15 @@ public class WaveSpawner : MonoBehaviour
     private SteamVR_TrackedController _controller1, _controller2;
     private float _triggerPressedTimer;
 
+    public void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        Instance = this;
+    }
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -60,6 +71,11 @@ public class WaveSpawner : MonoBehaviour
         // Spawn waves.
         HandleWaveSpawning();
 	}
+
+    public void StopSpawner()
+    {
+        _spawnerStarted = false;
+    }
 
     private void HandleCountdown()
     {

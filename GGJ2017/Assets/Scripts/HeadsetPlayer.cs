@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class HeadsetPlayer : MonoBehaviour {
+[RequireComponent(typeof(Collider))]
+public class HeadsetPlayer : MonoBehaviour
+{
+    [SerializeField]
+    private int _hitPoints;
+    [SerializeField]
+    private string _waveLayer = "Waves";
 
-	// Use this for initialization
-	void Start () {
+    public UnityEvent OnHitPointsZeroEvent;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +22,18 @@ public class HeadsetPlayer : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer(_waveLayer))
+        {
+            Destroy(other.gameObject);
+            _hitPoints--;
+            if (_hitPoints == 0)
+            {
+                Debug.Log("HeadsetPlayer has lost all hit points.");
+                OnHitPointsZeroEvent.Invoke();
+            }
+        }
+    }
 }
