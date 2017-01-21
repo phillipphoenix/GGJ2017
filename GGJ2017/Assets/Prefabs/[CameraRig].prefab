@@ -635,8 +635,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37846a56aab6314c8bb9c931a936ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitPoints: 5
+  _hitPoints: -1
   _waveLayer: Waves
+  _spawnPulseOnHit: 1
+  _pulsePrefab: {fileID: 1721193436655128, guid: 88b8a0ad5e17de941bdc1f8a1735a1c4,
+    type: 2}
   OnHitPointsZeroEvent:
     m_PersistentCalls:
       m_Calls:
