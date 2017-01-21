@@ -121,14 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mats:
-  - {fileID: 2100000, guid: 14a2c625e047f40af823adf81180d3f9, type: 2}
-  - {fileID: 2100000, guid: 00354476376c246108ebe66ca054792d, type: 2}
-  - {fileID: 2100000, guid: da6fe65073a1d4f1ba572f9acb90180f, type: 2}
-  - {fileID: 2100000, guid: cf5802fa4bd5c46229fe393e78a0ed96, type: 2}
-  - {fileID: 2100000, guid: ba26eb0d3475c45b880d467723e3889b, type: 2}
-  - {fileID: 2100000, guid: 393118f89dfc9417cab3ad0b12849319, type: 2}
-  - {fileID: 2100000, guid: 9470c1f3d131743f28eb59e63170cee5, type: 2}
+  - {fileID: 2100000, guid: 2c3b38b4250d94698aeee331f654361a, type: 2}
   speed: 0.3
   delay: 0
-  amplitudeY: 2
+  amplitudeY: 3
   omegaY: 2
