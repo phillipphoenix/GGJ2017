@@ -131,15 +131,15 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
+      value: 0.099999994
+      inSlope: 0.9
+      outSlope: 0.9
       tangentMode: 34
     - serializedVersion: 2
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
+      inSlope: 0.9
+      outSlope: 0.9
       tangentMode: 34
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -149,7 +149,7 @@ MonoBehaviour:
   shootDuration: 2
   shootSpeed: 100
   shieldOffset: {x: 0, y: 0, z: 5}
-  shootRumbleDuration: 0.1
+  shootRumbleDuration: 0.01
   shootRumbleInterval: 0.001
-  hitRumbleDuration: 0.001
+  hitRumbleDuration: 0.01
   hitRumbleInterval: 0.001

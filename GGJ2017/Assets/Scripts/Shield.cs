@@ -110,7 +110,7 @@ public class Shield : MonoBehaviour {
         // Enable
         EnableShield();
         // Haptic feedback
-        rumble.StartRumbleBuildUp(chargeDuration);
+        rumble.StartRumbleBuildUp(chargeDuration-.3f);
         // Scale
         for (float t = 0; t < chargeDuration; t += Time.deltaTime) {
             transform.localScale = chargedScale * chargeCurve.Evaluate(t / chargeDuration);
