@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1694625888420566}
+  m_IsPrefabParent: 1
+--- !u!1 &1694625888420566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4514688421128106}
+  - component: {fileID: 114638812681959742}
+  m_Layer: 0
+  m_Name: Music Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4514688421128106
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694625888420566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.603498, y: 1.1891733, z: 20.194916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114638812681959742
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694625888420566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96387e68ba6d9494b830fcaa0d9b92d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parts:
+  - {fileID: 8300000, guid: 2821d3fade86f47709db2d606f81525a, type: 3}
+  - {fileID: 8300000, guid: 3b38bf60d3ef94105a940bb47999e99b, type: 3}
+  - {fileID: 8300000, guid: fd13162e2bc2649c4bf87c226d89ae15, type: 3}
+  - {fileID: 8300000, guid: 6edbd2eb9325c4756896cabcd1f273f8, type: 3}
+  sources: []
+  groups:
+  - {fileID: 243095812405764440, guid: 23c725a79cb3746f8908adeb19005916, type: 2}
+  - {fileID: 243239062114486090, guid: 23c725a79cb3746f8908adeb19005916, type: 2}
+  - {fileID: 243968401984076894, guid: 23c725a79cb3746f8908adeb19005916, type: 2}
+  - {fileID: 243660691790617818, guid: 23c725a79cb3746f8908adeb19005916, type: 2}

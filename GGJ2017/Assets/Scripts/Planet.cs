@@ -5,8 +5,13 @@ using UnityEngine;
 public class Planet : MonoBehaviour {
 
 	Transform t;
-	public float speed;
+	public float speed, pumpSpeed, threshold;
 	public string direction;
+	public int audioMixerGroup;
+	public Vector3 baseSize;
+	public Vector3 changeSize;
+
+	public MusicPlayer music;
 	// Use this for initialization
 	void Start () {
 		t = transform;
@@ -23,5 +28,12 @@ public class Planet : MonoBehaviour {
 			t.Rotate (Vector3.up * Time.deltaTime * speed);
 		if(direction == "down")
 			t.Rotate (Vector3.down * Time.deltaTime * speed);
+
+		if(music.GetAveragedVolume (music.sources [audioMixerGroup]) > threshold){
+			t.localScale = changeSize;
+		}
+		else if (t.localScale.x > baseSize.x){
+			t.localScale = new Vector3(t.localScale.x - pumpSpeed, t.localScale.y - pumpSpeed, t.localScale.z - pumpSpeed);
+		}
 	}
 }
