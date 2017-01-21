@@ -11,7 +11,18 @@ public class SfxPlayer : MonoBehaviour {
 	public AudioMixerGroup sfxGroup;
 	public int buffer;
 	int sourceSelect = 0;
-	public MusicPlayer music;
+
+    public static SfxPlayer Instance { get; set; }
+
+
+    private void Awake() {
+        if(Instance != null) {
+            Destroy(gameObject);
+        } else {
+            Instance = this;
+        }       
+    }
+
 	// Use this for initialization
 	void Start () {
 		for (int i = 0; i < shieldCollisionClips.Length + buffer; i++){
@@ -56,8 +67,8 @@ public class SfxPlayer : MonoBehaviour {
 	}
 
 	public void Death(){
-		music.StopAllMusic ();
-		sources [sourceSelect].clip = death;
+        MusicPlayer.Instance.StopAllMusic();
+        sources [sourceSelect].clip = death;
 		sources [sourceSelect].Play ();
 	}
 }

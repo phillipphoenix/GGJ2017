@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 114228847780835708}
   - component: {fileID: 114149728342093778}
   - component: {fileID: 114105641007163098}
+  - component: {fileID: 114062808546264032}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -227,6 +228,7 @@ GameObject:
   - component: {fileID: 114459858231354508}
   - component: {fileID: 114362671674565086}
   - component: {fileID: 114448763497191388}
+  - component: {fileID: 114897789668091014}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: Untagged
@@ -549,6 +551,26 @@ MonoBehaviour:
   verbose: 0
   createComponents: 1
   updateDynamically: 1
+--- !u!114 &114062808546264032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1764477659304664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f01c34d7ceff524da65b9aec07db35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 114972561249233120, guid: 6c168667894bdbd4a9345819c7996c3c,
+    type: 2}
+  shootRumbleDuration: 0.01
+  shootRumbleInterval: 0.001
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114105641007163098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -635,16 +657,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37846a56aab6314c8bb9c931a936ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitPoints: -1
+  _hitPoints: 20
   _waveLayer: Waves
   _spawnPulseOnHit: 1
   _pulsePrefab: {fileID: 1721193436655128, guid: 88b8a0ad5e17de941bdc1f8a1735a1c4,
     type: 2}
+  _reloadLevelUponDeath: 1
   OnHitPointsZeroEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: StopSpawner
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Death
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -957,6 +991,26 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114897789668091014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1781410438378636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f01c34d7ceff524da65b9aec07db35d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 114972561249233120, guid: 6c168667894bdbd4a9345819c7996c3c,
+    type: 2}
+  shootRumbleDuration: 0.01
+  shootRumbleInterval: 0.001
+  OnShoot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114925310665331918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -989,14 +1043,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.75, y: 0.01, z: -1.2500004}
-  - {x: -1.75, y: 0.01, z: -1.2500004}
-  - {x: -1.75, y: 0.01, z: 1.2500004}
-  - {x: 1.75, y: 0.01, z: 1.2500004}
-  - {x: 1.9, y: 0.01, z: -1.4000003}
-  - {x: -1.9, y: 0.01, z: -1.4000003}
-  - {x: -1.9, y: 0.01, z: 1.4000003}
-  - {x: 1.9, y: 0.01, z: 1.4000003}
+  - {x: 1.9499996, y: 0.01, z: -1.5000001}
+  - {x: -1.9499996, y: 0.01, z: -1.5000001}
+  - {x: -1.9499996, y: 0.01, z: 1.5000001}
+  - {x: 1.9499996, y: 0.01, z: 1.5000001}
+  - {x: 2.0999997, y: 0.01, z: -1.6500001}
+  - {x: -2.0999997, y: 0.01, z: -1.6500001}
+  - {x: -2.0999997, y: 0.01, z: 1.6500001}
+  - {x: 2.0999997, y: 0.01, z: 1.6500001}
 --- !u!124 &124397311738530714
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1073,7 +1127,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1601665693799026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.85}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
   m_LocalScale: {x: 0.0015, y: 0.0015, z: 0.0015}
   m_Children:
   - {fileID: 224715105910829622}
@@ -1082,7 +1136,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 800, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224188321396498148

@@ -9,7 +9,7 @@ public class Rumbler
     private readonly VRTK_ControllerActions _controllerActions;
 
     private MonoBehaviour _monoBehaviour;
-    private Coroutine _rumbleBuildUpCoroutine;
+    private Coroutine _rumbleCoroutine;
 
     public Rumbler(MonoBehaviour monoBehaviour, VRTK_ControllerActions controllerActions)
     {
@@ -42,9 +42,9 @@ public class Rumbler
     /// <param name="buildUpDuration">The time it should take from initial to end values for the interval.</param>
     public void StartRumbleBuildUp(float buildUpDuration)
     {
-        StopRumbleBuildUp();
-        _rumbleBuildUpCoroutine = _monoBehaviour.StartCoroutine(RumbleBuildUp(buildUpDuration));
-        _monoBehaviour.Invoke("StopRumbleBuildUp", buildUpDuration);
+        StopRumble();
+        _rumbleCoroutine = _monoBehaviour.StartCoroutine(RumbleBuildUp(buildUpDuration));
+        _monoBehaviour.Invoke("StopRumble", buildUpDuration);
     }
 
     /// <summary>
@@ -55,21 +55,27 @@ public class Rumbler
     /// <param name="endInterval">The ending interval (default: 0.001).</param>
     public void StartRumbleBuildUp(float buildUpDuration, float initInterval, float endInterval)
     {
-        StopRumbleBuildUp();
-        _rumbleBuildUpCoroutine = _monoBehaviour.StartCoroutine(RumbleBuildUp(buildUpDuration, initInterval, endInterval));
-        _monoBehaviour.Invoke("StopRumbleBuildUp", buildUpDuration);
+        StopRumble();
+        _rumbleCoroutine = _monoBehaviour.StartCoroutine(RumbleBuildUp(buildUpDuration, initInterval, endInterval));
+        _monoBehaviour.Invoke("StopRumble", buildUpDuration);
     }
 
     /// <summary>
     /// Stops any ongoing rumble build up sequence.
     /// </summary>
-    public void StopRumbleBuildUp()
+    public void StopRumble()
     {
         Debug.Log("Stopping rumble build up!");
-        if (_monoBehaviour != null && _rumbleBuildUpCoroutine != null)
+        if (_monoBehaviour != null && _rumbleCoroutine != null)
         {
-            _monoBehaviour.StopCoroutine(_rumbleBuildUpCoroutine);
+            _monoBehaviour.StopCoroutine(_rumbleCoroutine);
         }   
+    }
+
+    public void StartRumble(float duration, float interval = 0.001f) {
+        StopRumble();
+        _rumbleCoroutine = _monoBehaviour.StartCoroutine(RumbleCo(duration, interval));
+        _monoBehaviour.Invoke("StopRumble", duration);
     }
 
     private IEnumerator RumbleBuildUp(float buildUpDuration, float initInterval = 0.07f, float endInterval = 0.001f)
@@ -82,6 +88,17 @@ public class Rumbler
 
         for (float interval = initInterval; interval >= endInterval; interval -= incrementValue)
         {
+            Rumble(1f, rumbleDuration, interval);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
+    private IEnumerator RumbleCo(float duration, float interval = 0.001f) {
+        int numberOfIncrements = 20;
+        float delay = duration / numberOfIncrements;
+        float rumbleDuration = delay - 0.05f;
+
+        for (float i = 0; i < numberOfIncrements; ++i) {
             Rumble(1f, rumbleDuration, interval);
             yield return new WaitForSeconds(delay);
         }

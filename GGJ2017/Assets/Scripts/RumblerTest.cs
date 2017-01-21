@@ -49,7 +49,7 @@ public class RumblerTest : MonoBehaviour
 
     private void StopRumbleBuildUp()
     {
-        _rumbler.StopRumbleBuildUp();
+        _rumbler.StopRumble();
     }
 
     private IEnumerator RumbleTickTester()

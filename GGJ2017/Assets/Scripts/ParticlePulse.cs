@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
-public class Pulse : MonoBehaviour {
+public class ParticlePulse : MonoBehaviour {
     public ParticleSystem particles;
 
     void Start () {
-        Destroy(gameObject, particles.duration);
+        Destroy(gameObject, particles.main.duration);
     }
 }

@@ -12,9 +12,19 @@ public class MusicPlayer : MonoBehaviour {
 	public AudioSource introSource;
 	public AudioMixerGroup introGroup;
 
-	public SfxPlayer sfx;
-	// Use this for initialization
-	void Start () {
+    public static MusicPlayer Instance { get; set; }
+
+
+    private void Awake() {
+        if (Instance != null) {
+            Destroy(gameObject);
+        } else {
+            Instance = this;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 		for (int i = 0; i < parts.Length; i++){
 			var go = gameObject.AddComponent <AudioSource>() as AudioSource;
 			sources = gameObject.GetComponents<AudioSource> ();
@@ -39,7 +49,7 @@ public class MusicPlayer : MonoBehaviour {
 			StartIntroMusic ();
 
 		if (Input.GetKeyDown (KeyCode.D))
-			sfx.Death ();
+            SfxPlayer.Instance.Death ();
 		}
 
 	public float GetAveragedVolume(AudioSource src)

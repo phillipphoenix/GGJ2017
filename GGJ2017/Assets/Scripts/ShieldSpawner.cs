@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using VRTK;
 
 [RequireComponent(typeof(SteamVR_TrackedController), typeof(VRTK_ControllerActions))]
@@ -13,6 +14,8 @@ public class ShieldSpawner : MonoBehaviour {
     SteamVR_TrackedController controller;
     Rumbler rumbler;
     Shield heldShield;
+
+    public UnityEvent OnShoot;
 
     // Use this for initialization
     void Start () {
@@ -59,6 +62,8 @@ public class ShieldSpawner : MonoBehaviour {
         if (rumbler != null) {
             rumbler.Rumble(1, shootRumbleDuration, shootRumbleInterval);
         }
+
+        OnShoot.Invoke();
     }
 
     void OnDisable() {

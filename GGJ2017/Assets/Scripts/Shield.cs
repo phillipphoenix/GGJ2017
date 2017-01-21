@@ -24,6 +24,10 @@ public class Shield : MonoBehaviour {
     public float hitRumbleDuration = 0.5f;
     public float hitRumbleInterval = 0.001f;
 
+    public float chargeRumbleInterval = 0.001f;
+
+    
+
     float lived;    
 
     Collider col;
@@ -38,7 +42,7 @@ public class Shield : MonoBehaviour {
         lived = 0;
         transform.localScale = chargedScale * chargeCurve.Evaluate(lived);
         // Charging sound feedback
-        // TODO
+        rumbler.StartRumble(chargeDuration - 0.3f, chargeRumbleInterval);
     }
 
     void Update() {
@@ -75,7 +79,9 @@ public class Shield : MonoBehaviour {
         Pulse(collisionCenter);
 
         // Held shield collision sound feedback
-        // TODO
+        if(SfxPlayer.Instance) {
+            SfxPlayer.Instance.ShieldCollision();
+        }
     }
 
     [ContextMenu("Test Shoot Shield")]
@@ -84,16 +90,14 @@ public class Shield : MonoBehaviour {
         lived = 0;
         // Stop charging
         charging = false;
-
-        // Shoot sound feedback
-        // TODO
+        // Stop charging haptic feedback
+        rumbler.StopRumble();
     }
 
     void Pulse(Vector3 center) {
         // Instantiate pulse as child
         if(pulsePrefab != null) {
             GameObject go = Instantiate(pulsePrefab);
-            //go.transform.parent = transform;
             go.transform.position = center;
             go.transform.LookAt(transform);
         }        
