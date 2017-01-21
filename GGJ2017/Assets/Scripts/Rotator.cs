@@ -26,7 +26,7 @@ public class Rotator : MonoBehaviour {
 		}
 	}
 
-	void StartRotation(){
+	public void StartRotation(){
 		doRotation = true;
 	}
 }

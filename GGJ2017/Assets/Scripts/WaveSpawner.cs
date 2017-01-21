@@ -25,6 +25,7 @@ public class WaveSpawner : MonoBehaviour
     private GameObject _waveContainer;
 
     private bool _spawnerStarted;
+    private bool _rotationStarted;
     private float _currentDelay = -1f;
     private float _delayTimer;
     private float _delayReductionTimer;
@@ -45,6 +46,15 @@ public class WaveSpawner : MonoBehaviour
 	    {
 	        HandleCountdown();
             return;
+	    }
+
+	    if (!_rotationStarted)
+	    {
+            foreach (var oceanPlaneGo in GameObject.FindGameObjectsWithTag("OceanPlane"))
+            {
+                oceanPlaneGo.GetComponent<Rotator>().StartRotation();
+            }
+	        _rotationStarted = true;
 	    }
 
         // Spawn waves.

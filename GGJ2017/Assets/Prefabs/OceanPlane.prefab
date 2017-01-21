@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114808071723943924}
   m_Layer: 0
   m_Name: OceanPlane
-  m_TagString: Untagged
+  m_TagString: OceanPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,3 +107,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  doRotation: 0
