@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public static WaveSpawner Instance { get; set; }
+
     [SerializeField]
     [Tooltip("Countdown till first wave in seconds.")]
     private float _startCountdown = 3f;
@@ -25,6 +27,7 @@ public class WaveSpawner : MonoBehaviour
     private GameObject _waveContainer;
 
     private bool _spawnerStarted;
+    private bool _rotationStarted;
     private float _currentDelay = -1f;
     private float _delayTimer;
     private float _delayReductionTimer;
@@ -32,6 +35,15 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField]
     private SteamVR_TrackedController _controller1, _controller2;
     private float _triggerPressedTimer;
+
+    public void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        Instance = this;
+    }
 
 	// Use this for initialization
 	void Start ()
@@ -47,9 +59,23 @@ public class WaveSpawner : MonoBehaviour
             return;
 	    }
 
+	    if (!_rotationStarted)
+	    {
+            foreach (var oceanPlaneGo in GameObject.FindGameObjectsWithTag("OceanPlane"))
+            {
+                oceanPlaneGo.GetComponent<Rotator>().StartRotation();
+            }
+	        _rotationStarted = true;
+	    }
+
         // Spawn waves.
         HandleWaveSpawning();
 	}
+
+    public void StopSpawner()
+    {
+        _spawnerStarted = false;
+    }
 
     private void HandleCountdown()
     {
@@ -144,14 +170,14 @@ public class WaveSpawner : MonoBehaviour
         Gizmos.color = Color.blue;
         for (int i = 0; i < 360; i += 10)
         {
-            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _spawnRadius, i), .3f);
+            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _spawnRadius, i), .2f);
         }
 
         // Wave target circle.
         Gizmos.color = Color.red;
         for (int i = 0; i < 360; i += 10)
         {
-            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _targetRadius, i), .3f);
+            Gizmos.DrawSphere(GetPosOnCircle(transform.position, _targetRadius, i), .2f);
         }
     }
 }

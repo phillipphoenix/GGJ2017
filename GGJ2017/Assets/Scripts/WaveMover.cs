@@ -9,7 +9,7 @@ public class WaveMover : MonoBehaviour
     public float Duration { get { return _duration; } set { _duration = value; } }
 
     [SerializeField]
-    private float _moveSpeed = 1f;
+    private float _moveSpeed = 50f;
     [SerializeField]
     private float _duration = 5f;
 
@@ -21,7 +21,7 @@ public class WaveMover : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    transform.position += transform.forward * _moveSpeed;
+	    transform.position += transform.forward * _moveSpeed * Time.deltaTime;
 	}
 
     private void DestroySelf()
