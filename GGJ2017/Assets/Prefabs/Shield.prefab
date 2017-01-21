@@ -149,3 +149,7 @@ MonoBehaviour:
   shootDuration: 2
   shootSpeed: 100
   shieldOffset: {x: 0, y: 0, z: 5}
+  shootRumbleDuration: 0.1
+  shootRumbleInterval: 0.001
+  hitRumbleDuration: 0.001
+  hitRumbleInterval: 0.001

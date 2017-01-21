@@ -46,7 +46,6 @@ public class OceanCreator : MonoBehaviour {
 
 		// Spawn wave.
 		GameObject go = Instantiate(_wavePrefab);
-		//go.transform.eulerAngles = new Vector3 (90, go.transform.eulerAngles.y, go.transform.eulerAngles.z);
 		if (_oceanCreator != null)
 		{
 			go.transform.parent = _oceanCreator.transform;

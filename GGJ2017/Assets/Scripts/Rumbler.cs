@@ -44,6 +44,7 @@ public class Rumbler
     {
         StopRumbleBuildUp();
         _rumbleBuildUpCoroutine = _monoBehaviour.StartCoroutine(RumbleBuildUp(buildUpDuration));
+        _monoBehaviour.Invoke("StopRumbleBuildUp", buildUpDuration);
     }
 
     /// <summary>
@@ -56,6 +57,7 @@ public class Rumbler
     {
         StopRumbleBuildUp();
         _rumbleBuildUpCoroutine = _monoBehaviour.StartCoroutine(RumbleBuildUp(buildUpDuration, initInterval, endInterval));
+        _monoBehaviour.Invoke("StopRumbleBuildUp", buildUpDuration);
     }
 
     /// <summary>
@@ -63,7 +65,8 @@ public class Rumbler
     /// </summary>
     public void StopRumbleBuildUp()
     {
-        if (_rumbleBuildUpCoroutine != null)
+        Debug.Log("Stopping rumble build up!");
+        if (_monoBehaviour != null && _rumbleBuildUpCoroutine != null)
         {
             _monoBehaviour.StopCoroutine(_rumbleBuildUpCoroutine);
         }   
@@ -72,7 +75,7 @@ public class Rumbler
     private IEnumerator RumbleBuildUp(float buildUpDuration, float initInterval = 0.07f, float endInterval = 0.001f)
     {
         float intervalDifference = initInterval - endInterval;
-        int numberOfIncrements = 10;
+        int numberOfIncrements = 20;
         float incrementValue = intervalDifference / numberOfIncrements;
         float delay = buildUpDuration / numberOfIncrements;
         float rumbleDuration = delay - 0.05f;
