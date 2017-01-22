@@ -57,7 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 14a2c625e047f40af823adf81180d3f9, type: 2}
+  - {fileID: 2100000, guid: 2c3b38b4250d94698aeee331f654361a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,9 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b756d6f7ddaa749a39adcba7d1bf04ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mats:
-  - {fileID: 2100000, guid: 2c3b38b4250d94698aeee331f654361a, type: 2}
   speed: 0.3
   delay: 0
-  amplitudeY: 3
+  amplitudeY: 2.5
   omegaY: 2

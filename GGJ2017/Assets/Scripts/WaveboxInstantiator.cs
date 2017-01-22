@@ -9,6 +9,10 @@ public class WaveboxInstantiator : MonoBehaviour
     private GameObject _prefab;
     [SerializeField]
     private int _waveLength, _waveDepth;
+    [SerializeField]
+    private float _boxSpacing = 0.02f;
+    [SerializeField]
+    private float _rowDelay = 0.15f;
     // Use this for initialization
     void Start()
     {
@@ -30,8 +34,9 @@ public class WaveboxInstantiator : MonoBehaviour
             {
                 var box = Instantiate(_prefab);
                 box.transform.parent = wave.transform;
-                box.transform.localPosition = new Vector3(i, transform.position.y, k);
-                box.GetComponent<Wavebox>().delay = (i * 0.5f); // + (k * 0.5f);
+                box.transform.localPosition = new Vector3(i + (_boxSpacing * i), 0, k + (_boxSpacing * k));
+                box.transform.localEulerAngles = new Vector3(0, 0, 0);
+                box.GetComponent<Wavebox>().delay = (i + halfLength) * _rowDelay; // + (k * 0.5f);
             }
         }
     }

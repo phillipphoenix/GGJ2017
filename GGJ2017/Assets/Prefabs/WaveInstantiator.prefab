@@ -47,7 +47,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1331089665807274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ee4c8df45dcdce42af0f20b2b773b4e, type: 3}
   m_Name: 
@@ -68,4 +68,5 @@ MonoBehaviour:
   _prefab: {fileID: 1420983917387500, guid: 0825978c5b68b4da699071fb9ecf5475, type: 2}
   _waveLength: 10
   _waveDepth: 10
-  _segments: 1
+  _boxSpacing: 0.02
+  _rowDelay: 0.15
