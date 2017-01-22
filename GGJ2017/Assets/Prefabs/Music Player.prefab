@@ -62,3 +62,9 @@ MonoBehaviour:
   - {fileID: 243239062114486090, guid: 23c725a79cb3746f8908adeb19005916, type: 2}
   - {fileID: 243968401984076894, guid: 23c725a79cb3746f8908adeb19005916, type: 2}
   - {fileID: 243660691790617818, guid: 23c725a79cb3746f8908adeb19005916, type: 2}
+  introClip: {fileID: 8300000, guid: ed1d06a66d2504403bade1bf22cba950, type: 3}
+  highscoreClip: {fileID: 8300000, guid: 7a928985d90554a8993d35301138f66d, type: 3}
+  introSource: {fileID: 0}
+  highscoreSource: {fileID: 0}
+  musicGroup: {fileID: 243486691642396738, guid: 23c725a79cb3746f8908adeb19005916,
+    type: 2}

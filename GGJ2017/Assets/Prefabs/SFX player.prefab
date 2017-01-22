@@ -71,6 +71,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 521fad72079d54a7d8f42e75efab3d8e, type: 3}
   - {fileID: 8300000, guid: e1d62ede265ed4286ab783c41c00a044, type: 3}
   death: {fileID: 8300000, guid: 8152aef2d8afc4149ba8091c5a17eda5, type: 3}
+  shieldShoot: {fileID: 0}
+  damageTaken: {fileID: 0}
   sfxGroup: {fileID: 243100845021792112, guid: 23c725a79cb3746f8908adeb19005916, type: 2}
   buffer: 5
-  music: {fileID: 0}

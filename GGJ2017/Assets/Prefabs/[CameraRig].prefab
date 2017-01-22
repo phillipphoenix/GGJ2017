@@ -619,7 +619,18 @@ MonoBehaviour:
   shootRumbleInterval: 0.001
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ShieldShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114087931211639516
@@ -743,7 +754,18 @@ MonoBehaviour:
   _reloadLevelUponDeath: 0
   OnHitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: DamageTaken
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   OnHitPointsZeroEvent:
@@ -771,6 +793,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnDeathSfxDoneEvent:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: DisplayHighscore
         m_Mode: 1
@@ -1172,7 +1199,18 @@ MonoBehaviour:
   shootRumbleInterval: 0.001
   OnShoot:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: ShieldShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &114925310665331918
@@ -1207,14 +1245,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.9499996, y: 0.01, z: -1.5000001}
-  - {x: -1.9499996, y: 0.01, z: -1.5000001}
-  - {x: -1.9499996, y: 0.01, z: 1.5000001}
-  - {x: 1.9499996, y: 0.01, z: 1.5000001}
-  - {x: 2.0999997, y: 0.01, z: -1.6500001}
-  - {x: -2.0999997, y: 0.01, z: -1.6500001}
-  - {x: -2.0999997, y: 0.01, z: 1.6500001}
-  - {x: 2.0999997, y: 0.01, z: 1.6500001}
+  - {x: 1.6500002, y: 0.01, z: -1.55}
+  - {x: -1.6500002, y: 0.01, z: -1.55}
+  - {x: -1.6500002, y: 0.01, z: 1.55}
+  - {x: 1.6500002, y: 0.01, z: 1.55}
+  - {x: 1.8000002, y: 0.01, z: -1.6999999}
+  - {x: -1.8000002, y: 0.01, z: -1.6999999}
+  - {x: -1.8000002, y: 0.01, z: 1.6999999}
+  - {x: 1.8000002, y: 0.01, z: 1.6999999}
 --- !u!124 &124397311738530714
 Behaviour:
   m_ObjectHideFlags: 1

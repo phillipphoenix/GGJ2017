@@ -8,7 +8,7 @@ public class MusicPlayer : MonoBehaviour {
 	public AudioClip[] parts;
 	public AudioSource[] sources;
 	public AudioMixerGroup[] groups;
-	public AudioClip introClip;
+	public AudioClip introClip, highscoreClip;
 	public AudioSource introSource, highscoreSource;
 	public AudioMixerGroup musicGroup;
 
@@ -21,28 +21,25 @@ public class MusicPlayer : MonoBehaviour {
         } else {
             Instance = this;
         }
+        for (int i = 0; i < parts.Length; i++) {
+            var go = gameObject.AddComponent<AudioSource>() as AudioSource;
+            sources = gameObject.GetComponents<AudioSource>();
+            sources[i].clip = parts[i];
+            sources[i].outputAudioMixerGroup = groups[i];
+            sources[i].loop = true;
+        }
+
+        introSource = gameObject.AddComponent<AudioSource>() as AudioSource;
+        introSource.clip = introClip;
+        introSource.outputAudioMixerGroup = musicGroup;
+
+        highscoreSource = gameObject.AddComponent<AudioSource>() as AudioSource;
+        highscoreSource.clip = highscoreClip;
+        highscoreSource.outputAudioMixerGroup = musicGroup;
+
+
     }
 
-    // Use this for initialization
-    void Start () {
-		for (int i = 0; i < parts.Length; i++){
-			var go = gameObject.AddComponent <AudioSource>() as AudioSource;
-			sources = gameObject.GetComponents<AudioSource> ();
-			sources [i].clip = parts [i];
-			sources [i].outputAudioMixerGroup = groups [i];
-			sources [i].loop = true;
-		}
-
-		introSource = gameObject.AddComponent <AudioSource>() as AudioSource;
-		introSource.clip = introClip;
-		introSource.outputAudioMixerGroup = musicGroup;
-
-		highscoreSource = gameObject.AddComponent <AudioSource>() as AudioSource;
-		highscoreSource.clip = introClip;
-		highscoreSource.outputAudioMixerGroup = musicGroup;
-
-
-	}
 	
 	// Update is called once per frame
 	void Update () {

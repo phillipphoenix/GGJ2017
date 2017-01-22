@@ -66,13 +66,14 @@ public class WaveSpawner : MonoBehaviour
         }
         Instance = this;
 
-        OnLevelLoaded.Invoke();
+       
     }
 
 	// Use this for initialization
 	void Start ()
 	{
-	}
+        OnLevelLoaded.Invoke();
+    }
 	
 	// Update is called once per frame
 	void Update () {
