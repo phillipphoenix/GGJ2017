@@ -31,9 +31,11 @@ public class WaveSpawner : MonoBehaviour
     private GameObject _waveContainer;
 
     [SerializeField]
-    private GameObject _canvas;
+    private GameObject _introPanelGo;
     [SerializeField]
     private GameObject _countdownGo;
+    [SerializeField]
+    private GameObject _outroPanelGo;
     [SerializeField]
     private Text _countdownNumberText;
 
@@ -66,7 +68,9 @@ public class WaveSpawner : MonoBehaviour
         }
         Instance = this;
 
-       
+        _introPanelGo.SetActive(true);
+        _outroPanelGo.SetActive(false);
+
     }
 
 	// Use this for initialization
@@ -123,9 +127,9 @@ public class WaveSpawner : MonoBehaviour
             if (_triggerPressedTimer >= _startCountdown)
             {
                 _spawnerStarted = true;
-                if (_canvas != null)
+                if (_introPanelGo != null)
                 {
-                    _canvas.SetActive(false);
+                    _introPanelGo.SetActive(false);
                 }
             }
         }
@@ -133,16 +137,16 @@ public class WaveSpawner : MonoBehaviour
         {
             HandleCountdownUI(false);
             _triggerPressedTimer = 0;
-            if (_canvas != null)
+            if (_introPanelGo != null)
             {
-                _canvas.SetActive(true);
+                _introPanelGo.SetActive(true);
             }
         }
     }
 
     private void HandleCountdownUI(bool pressed)
     {
-        if (_canvas == null)
+        if (_introPanelGo == null)
         {
             return;
         }
@@ -151,6 +155,11 @@ public class WaveSpawner : MonoBehaviour
         _countdownGo.SetActive(pressed);
 
         _countdownNumberText.text = ((int)(_startCountdown - _triggerPressedTimer)).ToString();
+    }
+
+    public void DisplayOutroUI()
+    {
+        _outroPanelGo.SetActive(true);
     }
 
     private void HandleWaveSpawning()
