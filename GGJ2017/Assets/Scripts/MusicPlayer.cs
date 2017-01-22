@@ -9,8 +9,8 @@ public class MusicPlayer : MonoBehaviour {
 	public AudioSource[] sources;
 	public AudioMixerGroup[] groups;
 	public AudioClip introClip;
-	public AudioSource introSource;
-	public AudioMixerGroup introGroup;
+	public AudioSource introSource, highscoreSource;
+	public AudioMixerGroup musicGroup;
 
     public static MusicPlayer Instance { get; set; }
 
@@ -35,7 +35,11 @@ public class MusicPlayer : MonoBehaviour {
 
 		introSource = gameObject.AddComponent <AudioSource>() as AudioSource;
 		introSource.clip = introClip;
-		introSource.outputAudioMixerGroup = introGroup;
+		introSource.outputAudioMixerGroup = musicGroup;
+
+		highscoreSource = gameObject.AddComponent <AudioSource>() as AudioSource;
+		highscoreSource.clip = introClip;
+		highscoreSource.outputAudioMixerGroup = musicGroup;
 
 
 	}
@@ -69,6 +73,7 @@ public class MusicPlayer : MonoBehaviour {
 		for (int k = 0; k < sources.Length; k++){
 			sources [k].PlayScheduled (AudioSettings.dspTime + 0.5);
 		}
+		highscoreSource.Stop ();
 	}
 
 	public void StartIntroMusic(){
@@ -76,7 +81,18 @@ public class MusicPlayer : MonoBehaviour {
 			sources [k].Stop();
 		}
 
+		highscoreSource.Stop ();
+
 		introSource.Play ();
+
+	}
+
+	public void StartHighscoreMusic(){
+		for (int k = 0; k < sources.Length; k++){
+			sources [k].Stop();
+		}
+
+		highscoreSource.Play ();
 
 	}
 
