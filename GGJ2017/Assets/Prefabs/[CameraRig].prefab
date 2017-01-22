@@ -749,7 +749,7 @@ MonoBehaviour:
   _hitPoints: 5
   _waveLayer: Waves
   _spawnPulseOnHit: 1
-  _pulsePrefab: {fileID: 1998681236503268, guid: 165382c005cf4e449a6fb1d02efabad5,
+  _confettiSpawnerPrefab: {fileID: 1998681236503268, guid: 165382c005cf4e449a6fb1d02efabad5,
     type: 2}
   _reloadLevelUponDeath: 0
   OnHitEvent:
@@ -795,6 +795,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_MethodName: DisplayOutroUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Death
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

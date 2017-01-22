@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4906437788910312}
   - component: {fileID: 198532749909858742}
   - component: {fileID: 199095348486380072}
-  - component: {fileID: 114472227260115276}
   m_Layer: 0
   m_Name: Particles
   m_TagString: Untagged
@@ -37,8 +36,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4375852310620862}
+  - component: {fileID: 114403313103908598}
   m_Layer: 0
-  m_Name: Confetti
+  m_Name: ConfettiSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,25 +64,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1856366388054602}
-  m_LocalRotation: {x: -0, y: -0, z: 0.60876137, w: 0.7933534}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4375852310620862}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 75}
---- !u!114 &114472227260115276
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114403313103908598
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1856366388054602}
+  m_GameObject: {fileID: 1998681236503268}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a46556acec6e3e499e8e7b0258939c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 198532749909858742}
+  DestroyAfterPulse: 1
 --- !u!198 &198532749909858742
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -170,7 +171,7 @@ ParticleSystem:
         m_RotationOrder: 0
       minMaxState: 3
     startSpeed:
-      scalar: 12
+      scalar: 14
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -188,7 +189,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 2
           time: 0
-          value: 0.5
+          value: 0.71428573
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -533,9 +534,9 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 3
     enabled: 1
-    type: 10
-    radius: 0.65
-    angle: 25
+    type: 7
+    radius: 0.5
+    angle: 51.93
     length: 5
     boxX: 1
     boxY: 1
@@ -551,7 +552,7 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    randomDirectionAmount: 0
+    randomDirectionAmount: 1
     sphericalDirectionAmount: 0
   EmissionModule:
     enabled: 1
@@ -634,11 +635,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    cnt0: 10
+    cnt0: 20
     cnt1: 30
     cnt2: 30
     cnt3: 30
-    cntmax0: 10
+    cntmax0: 20
     cntmax1: 30
     cntmax2: 30
     cntmax3: 30
@@ -1328,9 +1329,9 @@ ParticleSystem:
     enabled: 0
     multiplier: 1
   ClampVelocityModule:
-    enabled: 0
+    enabled: 1
     x:
-      scalar: 1
+      scalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1369,7 +1370,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     y:
-      scalar: 1
+      scalar: 16.42
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1408,7 +1409,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     z:
-      scalar: 1
+      scalar: 100
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1485,7 +1486,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
       minMaxState: 0
-    separateAxis: 0
+    separateAxis: 1
     inWorldSpace: 0
     dampen: 1
   NoiseModule:

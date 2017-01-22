@@ -14,7 +14,7 @@ public class HeadsetPlayer : MonoBehaviour
     [SerializeField]
     private bool _spawnPulseOnHit = true;
     [SerializeField]
-    private GameObject _pulsePrefab;
+    private GameObject _confettiSpawnerPrefab;
     [SerializeField]
     private bool _reloadLevelUponDeath = true;
 
@@ -62,10 +62,10 @@ public class HeadsetPlayer : MonoBehaviour
             return;
         }
         // Instantiate pulse as child
-        if (_pulsePrefab != null)
+        if (_confettiSpawnerPrefab != null)
         {
-            GameObject go = Instantiate(_pulsePrefab);
-            go.transform.position = center;
+            GameObject confetti = Instantiate(_confettiSpawnerPrefab);
+            confetti.transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
     }
 }

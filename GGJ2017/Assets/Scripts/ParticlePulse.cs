@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(ParticleSystem))]
+
 public class ParticlePulse : MonoBehaviour {
     public ParticleSystem particles;
+    public bool DestroyAfterPulse = true;
 
     void Start () {
-        Destroy(transform.parent.gameObject, particles.main.duration);
+        if(DestroyAfterPulse) {
+            Destroy(transform.parent.gameObject, particles.main.duration);
+        }        
+    }
+
+    public void DoPulse () {
+        particles.Play();
     }
 }
