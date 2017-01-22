@@ -8,7 +8,7 @@ public class ParticlePulse : MonoBehaviour {
 
     void Start () {
         if(DestroyAfterPulse) {
-            Destroy(transform.parent.gameObject, particles.main.duration);
+            Destroy(gameObject, particles.main.duration);
         }        
     }
 

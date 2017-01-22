@@ -19,8 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4596906012380558}
-  - component: {fileID: 135175516686864290}
   - component: {fileID: 114313285566356068}
+  - component: {fileID: 136506177465818470}
   m_Layer: 0
   m_Name: HeadsetPlayer
   m_TagString: Untagged
@@ -746,7 +746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c37846a56aab6314c8bb9c931a936ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitPoints: 5
+  _hitPoints: 40
   _waveLayer: Waves
   _spawnPulseOnHit: 1
   _confettiSpawnerPrefab: {fileID: 1998681236503268, guid: 165382c005cf4e449a6fb1d02efabad5,
@@ -1284,8 +1284,8 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349684688502756}
   m_Enabled: 1
---- !u!135 &135175516686864290
-SphereCollider:
+--- !u!136 &136506177465818470
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -1293,8 +1293,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
+  m_Radius: 0.33
+  m_Height: 1.62
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &222027196222149902
 CanvasRenderer:
