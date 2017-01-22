@@ -39,8 +39,7 @@ public class SfxPlayer : MonoBehaviour {
 			ShieldCollision ();
 		}
 
-		if (sourceSelect >= sources.Length - 1)
-			sourceSelect = 0;
+		
 		
 	}
 
@@ -48,10 +47,9 @@ public class SfxPlayer : MonoBehaviour {
 		int clip = Random.Range (0, shieldCollisionClips.Length);
 		sources [sourceSelect].clip = shieldCollisionClips[clip];
 		sources [sourceSelect].Play ();
-		sourceSelect++;
+		sourceSelect = (sourceSelect + 1) % sources.Length;
 
-
-		/*
+        /*
 		for(int i = 0; i < sources.Length; i++){
 			if(!sources[i].isPlaying){
 				sources [i].clip = shieldCollisionClips [clip];
@@ -66,26 +64,24 @@ public class SfxPlayer : MonoBehaviour {
 			}
 		}
 		*/
-	}
+    }
 
 	public void Death(){
         MusicPlayer.Instance.StopAllMusic();
         sources [sourceSelect].clip = death;
 		sources [sourceSelect].Play ();
-
-		if (sourceSelect >= sources.Length - 1)
-			sourceSelect = 0;
-	}
+        sourceSelect = (sourceSelect + 1) % sources.Length;
+    }
 
 	public void ShieldShoot(){
 		sources [sourceSelect].clip = shieldShoot;
 		sources [sourceSelect].Play ();
-		sourceSelect++;
-	}
+        sourceSelect = (sourceSelect + 1) % sources.Length;
+    }
 
 	public void DamageTaken(){
 		sources [sourceSelect].clip = damageTaken;
 		sources [sourceSelect].Play ();
-		sourceSelect++;
-	}
+        sourceSelect = (sourceSelect + 1) % sources.Length;
+    }
 }
