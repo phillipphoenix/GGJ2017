@@ -44,6 +44,7 @@ public class WaveSpawner : MonoBehaviour
     private float _currentDelay = -1f;
     private float _delayTimer;
     private float _delayReductionTimer;
+    private bool _gameOver;
 
     [SerializeField]
     private SteamVR_TrackedController _controller1, _controller2;
@@ -81,6 +82,12 @@ public class WaveSpawner : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
+        // If game over, don't do anything.
+	    if (_gameOver)
+	    {
+	        return;
+	    }
+
         // If waves not started, wait for players to start spawner.
 	    if (!_spawnerStarted)
 	    {
@@ -108,7 +115,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void StopSpawner()
     {
-        _spawnerStarted = false;
+        _gameOver = true;
     }
 
     public void ResetScore()

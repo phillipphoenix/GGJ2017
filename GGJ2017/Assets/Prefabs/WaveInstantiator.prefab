@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 20
-  _duration: 50
+  _duration: 45
 --- !u!114 &114684980113289258
 MonoBehaviour:
   m_ObjectHideFlags: 1
