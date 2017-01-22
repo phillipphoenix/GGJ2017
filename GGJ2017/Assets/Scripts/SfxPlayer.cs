@@ -38,6 +38,9 @@ public class SfxPlayer : MonoBehaviour {
 		if(Input.GetKey(KeyCode.Space)){
 			ShieldCollision ();
 		}
+
+		if (sourceSelect >= sources.Length - 1)
+			sourceSelect = 0;
 		
 	}
 
@@ -47,8 +50,7 @@ public class SfxPlayer : MonoBehaviour {
 		sources [sourceSelect].Play ();
 		sourceSelect++;
 
-		if (sourceSelect >= sources.Length - 1)
-			sourceSelect = 0;
+
 		/*
 		for(int i = 0; i < sources.Length; i++){
 			if(!sources[i].isPlaying){
@@ -70,6 +72,9 @@ public class SfxPlayer : MonoBehaviour {
         MusicPlayer.Instance.StopAllMusic();
         sources [sourceSelect].clip = death;
 		sources [sourceSelect].Play ();
+
+		if (sourceSelect >= sources.Length - 1)
+			sourceSelect = 0;
 	}
 
 	public void ShieldShoot(){
