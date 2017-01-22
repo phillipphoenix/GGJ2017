@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4596906012380558}
-  - component: {fileID: 136224039944971054}
+  - component: {fileID: 135175516686864290}
   - component: {fileID: 114313285566356068}
   m_Layer: 0
   m_Name: HeadsetPlayer
@@ -1203,7 +1203,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tell the other players to keep the triggers pressed to start
+  m_Text: 'Tell the other players to keep
+
+    the triggers pressed to start'
 --- !u!114 &114897789668091014
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1282,19 +1284,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1349684688502756}
   m_Enabled: 1
---- !u!136 &136224039944971054
-CapsuleCollider:
+--- !u!135 &135175516686864290
+SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1083769318475370}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.2, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &222027196222149902
 CanvasRenderer:
   m_ObjectHideFlags: 1
