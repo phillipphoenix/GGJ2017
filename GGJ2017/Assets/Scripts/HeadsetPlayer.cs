@@ -20,6 +20,7 @@ public class HeadsetPlayer : MonoBehaviour
 
     public UnityEvent OnHitEvent;
     public UnityEvent OnHitPointsZeroEvent;
+    public UnityEvent OnDeathSfxDoneEvent;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -33,6 +34,8 @@ public class HeadsetPlayer : MonoBehaviour
             {
                 Debug.Log("HeadsetPlayer has lost all hit points.");
                 OnHitPointsZeroEvent.Invoke();
+                Invoke("InvokeDeathSfxDone", SfxPlayer.Instance.death.length);
+
                 if (_reloadLevelUponDeath)
                 {
                     ReloadScene();
@@ -40,6 +43,10 @@ public class HeadsetPlayer : MonoBehaviour
                 WaveSpawner.Instance.ResetScore();
             }
         }
+    }
+
+    void InvokeDeathSfxDone() {
+        OnDeathSfxDoneEvent.Invoke();
     }
 
     public void ReloadScene()

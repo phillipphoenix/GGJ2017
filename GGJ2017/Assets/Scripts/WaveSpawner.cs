@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
@@ -54,6 +55,9 @@ public class WaveSpawner : MonoBehaviour
 
     private float _secondsSurvived;
 
+    public UnityEvent OnLevelLoaded;
+    public UnityEvent OnGameStart;
+
     public void Awake()
     {
         if (Instance != null)
@@ -61,6 +65,8 @@ public class WaveSpawner : MonoBehaviour
             Destroy(gameObject);
         }
         Instance = this;
+
+        OnLevelLoaded.Invoke();
     }
 
 	// Use this for initialization
@@ -79,6 +85,8 @@ public class WaveSpawner : MonoBehaviour
 
 	    if (!_rotationStarted)
 	    {
+            OnGameStart.Invoke();
+
             foreach (var oceanPlaneGo in GameObject.FindGameObjectsWithTag("OceanPlane"))
             {
                 oceanPlaneGo.GetComponent<Rotator>().StartRotation();
