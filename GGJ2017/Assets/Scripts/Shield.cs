@@ -42,7 +42,7 @@ public class Shield : MonoBehaviour {
         lived = 0;
         transform.localScale = chargedScale * chargeCurve.Evaluate(lived);
         // Charging sound feedback
-        rumbler.StartRumble(chargeDuration - 0.3f, chargeRumbleInterval);
+        //rumbler.StartRumble(chargeDuration - 0.3f, chargeRumbleInterval);
     }
 
     void Update() {

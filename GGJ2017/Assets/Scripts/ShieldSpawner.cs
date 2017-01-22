@@ -22,12 +22,14 @@ public class ShieldSpawner : MonoBehaviour {
         controller = GetComponent<SteamVR_TrackedController>();
         rumbler = new Rumbler(this, GetComponent<VRTK_ControllerActions>());
         // Callbacks for trigger button
-        if (controller) {
-            controller.TriggerClicked += TriggerDown;
-            controller.TriggerUnclicked += TriggerUp;            
-        } else {
-            Debug.LogError(this.GetType().Name + " needs a reference to a " + typeof(SteamVR_TrackedController).Name);
-        }
+        //if (controller) {
+        //    controller.TriggerClicked += TriggerDown;
+        //    controller.TriggerUnclicked += TriggerUp;            
+        //} else {
+        //    Debug.LogError(this.GetType().Name + " needs a reference to a " + typeof(SteamVR_TrackedController).Name);
+        //}
+        
+        CreateShield();
     }
 
     void Update() {
@@ -67,9 +69,9 @@ public class ShieldSpawner : MonoBehaviour {
     }
 
     void OnDisable() {
-        if (controller) {
-            controller.TriggerClicked -= TriggerDown;
-            controller.TriggerUnclicked -= TriggerUp;
-        }
+        //if (controller) {
+        //    controller.TriggerClicked -= TriggerDown;
+        //    controller.TriggerUnclicked -= TriggerUp;
+        //}
     }
 }
