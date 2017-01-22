@@ -1203,7 +1203,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tell the other players to keep the triggers pressed to start
+  m_Text: 'Tell the other players to keep
+
+    the triggers pressed to start'
 --- !u!114 &114897789668091014
 MonoBehaviour:
   m_ObjectHideFlags: 1
