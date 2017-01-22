@@ -6,6 +6,6 @@ public class ParticlePulse : MonoBehaviour {
     public ParticleSystem particles;
 
     void Start () {
-        Destroy(gameObject, particles.main.duration);
+        Destroy(transform.parent.gameObject, particles.main.duration);
     }
 }

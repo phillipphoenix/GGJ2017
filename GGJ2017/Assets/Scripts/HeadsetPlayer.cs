@@ -18,12 +18,14 @@ public class HeadsetPlayer : MonoBehaviour
     [SerializeField]
     private bool _reloadLevelUponDeath = true;
 
+    public UnityEvent OnHitEvent;
     public UnityEvent OnHitPointsZeroEvent;
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer(_waveLayer))
         {
+            OnHitEvent.Invoke();
             Pulse(other.gameObject.transform.position);
             Destroy(other.gameObject);
             _hitPoints--;
@@ -56,7 +58,6 @@ public class HeadsetPlayer : MonoBehaviour
         if (_pulsePrefab != null)
         {
             GameObject go = Instantiate(_pulsePrefab);
-            go.transform.parent = transform;
             go.transform.position = center;
         }
     }
