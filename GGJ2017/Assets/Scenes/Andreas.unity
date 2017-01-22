@@ -135,6 +135,21 @@ Prefab:
       propertyPath: music
       value: 
       objectReference: {fileID: 818972560}
+    - target: {fileID: 114536528913134518, guid: f768af438b1ed4483ab3055971e7adc9,
+        type: 2}
+      propertyPath: DamageTaken
+      value: 
+      objectReference: {fileID: 8300000, guid: 2eaacc0fd29174f76afe37b6ffabb461, type: 3}
+    - target: {fileID: 114536528913134518, guid: f768af438b1ed4483ab3055971e7adc9,
+        type: 2}
+      propertyPath: shieldShoot
+      value: 
+      objectReference: {fileID: 8300000, guid: dec0801d58556489c9716245edb2af31, type: 3}
+    - target: {fileID: 114536528913134518, guid: f768af438b1ed4483ab3055971e7adc9,
+        type: 2}
+      propertyPath: damageTaken
+      value: 
+      objectReference: {fileID: 8300000, guid: 2eaacc0fd29174f76afe37b6ffabb461, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f768af438b1ed4483ab3055971e7adc9, type: 2}
   m_IsPrefabParent: 0

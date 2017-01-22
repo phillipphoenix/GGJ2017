@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 public class SfxPlayer : MonoBehaviour {
 
 	public AudioClip[] shieldCollisionClips;
-	public AudioClip death;
+	public AudioClip death, shieldShoot, damageTaken;
 	AudioSource[] sources;
 	public AudioMixerGroup sfxGroup;
 	public int buffer;
@@ -70,5 +70,17 @@ public class SfxPlayer : MonoBehaviour {
         MusicPlayer.Instance.StopAllMusic();
         sources [sourceSelect].clip = death;
 		sources [sourceSelect].Play ();
+	}
+
+	public void ShieldShoot(){
+		sources [sourceSelect].clip = shieldShoot;
+		sources [sourceSelect].Play ();
+		sourceSelect++;
+	}
+
+	public void DamageTaken(){
+		sources [sourceSelect].clip = damageTaken;
+		sources [sourceSelect].Play ();
+		sourceSelect++;
 	}
 }
