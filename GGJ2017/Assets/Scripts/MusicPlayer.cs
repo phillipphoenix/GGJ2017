@@ -32,9 +32,11 @@ public class MusicPlayer : MonoBehaviour {
         introSource = gameObject.AddComponent<AudioSource>() as AudioSource;
         introSource.clip = introClip;
         introSource.outputAudioMixerGroup = musicGroup;
+        introSource.loop = true;
 
         highscoreSource = gameObject.AddComponent<AudioSource>() as AudioSource;
         highscoreSource.clip = highscoreClip;
+        highscoreSource.loop = true;
         highscoreSource.outputAudioMixerGroup = musicGroup;
 
 
