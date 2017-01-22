@@ -275,17 +275,17 @@ Prefab:
     - target: {fileID: 224102437556980974, guid: 41d331877ef585344b5035c49df85706,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -20
       objectReference: {fileID: 0}
     - target: {fileID: 224102437556980974, guid: 41d331877ef585344b5035c49df85706,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 224752926122459096, guid: 41d331877ef585344b5035c49df85706,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41d331877ef585344b5035c49df85706, type: 2}
@@ -629,16 +629,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 23609059492706254, guid: e6191c84ee3286840aa9ee0079acead4,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 518827710}
     - target: {fileID: 33255920149480998, guid: e6191c84ee3286840aa9ee0079acead4,
         type: 2}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1696133246}
+    - target: {fileID: 23609059492706254, guid: e6191c84ee3286840aa9ee0079acead4,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 518827710}
     - target: {fileID: 114313285566356068, guid: e6191c84ee3286840aa9ee0079acead4,
         type: 2}
       propertyPath: OnHitPointsZeroEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -654,22 +654,6 @@ Prefab:
       propertyPath: OnHitPointsZeroEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 677791543}
-    - target: {fileID: 114313285566356068, guid: e6191c84ee3286840aa9ee0079acead4,
-        type: 2}
-      propertyPath: _spawnPulseOnHit
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114313285566356068, guid: e6191c84ee3286840aa9ee0079acead4,
-        type: 2}
-      propertyPath: _pulsePrefab
-      value: 
-      objectReference: {fileID: 1998681236503268, guid: 165382c005cf4e449a6fb1d02efabad5,
-        type: 2}
-    - target: {fileID: 114313285566356068, guid: e6191c84ee3286840aa9ee0079acead4,
-        type: 2}
-      propertyPath: _hitPoints
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e6191c84ee3286840aa9ee0079acead4, type: 2}
   m_IsPrefabParent: 0
@@ -954,12 +938,12 @@ GameObject:
   - component: {fileID: 1716948632}
   - component: {fileID: 1716948631}
   m_Layer: 0
-  m_Name: WaveSpawnerTest
+  m_Name: WaveSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1716948631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,7 +1228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2057533841}
   m_Layer: 0
-  m_Name: WaveContainerTest
+  m_Name: WaveContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
