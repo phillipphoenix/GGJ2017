@@ -505,6 +505,7 @@ MonoBehaviour:
   _prefab: {fileID: 1420983917387500, guid: 0825978c5b68b4da699071fb9ecf5475, type: 2}
   _waveLength: 10
   _waveDepth: 10
+  _segments: 1
 --- !u!4 &1727219572
 Transform:
   m_ObjectHideFlags: 0
