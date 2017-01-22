@@ -10,8 +10,7 @@ public class Planet : MonoBehaviour {
 	public int audioMixerGroup;
 	public Vector3 baseSize;
 	public Vector3 changeSize;
-
-	public MusicPlayer music;
+    
 	// Use this for initialization
 	void Start () {
 		t = transform;
@@ -29,7 +28,7 @@ public class Planet : MonoBehaviour {
 		if(direction == "down")
 			t.Rotate (Vector3.down * Time.deltaTime * speed);
 
-		if(music.GetAveragedVolume (music.sources [audioMixerGroup]) > threshold){
+		if(MusicPlayer.Instance.GetAveragedVolume (MusicPlayer.Instance.sources [audioMixerGroup]) > threshold){
 			t.localScale = changeSize;
 		}
 		else if (t.localScale.x > baseSize.x){

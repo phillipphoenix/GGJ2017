@@ -7,6 +7,8 @@ public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner Instance { get; set; }
 
+    public int SecondsSurvived { get { return (int) _secondsSurvived; } private set { _secondsSurvived = value; } }
+
     [SerializeField]
     [Tooltip("Countdown till first wave in seconds.")]
     private float _startCountdown = 3f;
@@ -50,6 +52,8 @@ public class WaveSpawner : MonoBehaviour
     private float _maxWaveSpawnAngle = 90;
     private float _previousWaveSpawnAngle;
 
+    private float _secondsSurvived;
+
     public void Awake()
     {
         if (Instance != null)
@@ -82,6 +86,9 @@ public class WaveSpawner : MonoBehaviour
 	        _rotationStarted = true;
 	    }
 
+        // Count survived seconds.
+        _secondsSurvived += Time.deltaTime;
+
         // Spawn waves.
         HandleWaveSpawning();
 	}
@@ -89,6 +96,11 @@ public class WaveSpawner : MonoBehaviour
     public void StopSpawner()
     {
         _spawnerStarted = false;
+    }
+
+    public void ResetScore()
+    {
+        SecondsSurvived = 0;
     }
 
     private void HandleCountdown()

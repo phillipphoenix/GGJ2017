@@ -33,11 +33,17 @@ public class HeadsetPlayer : MonoBehaviour
                 OnHitPointsZeroEvent.Invoke();
                 if (_reloadLevelUponDeath)
                 {
-                    Debug.Log("Reloading scene!");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    ReloadScene();
                 }
+                WaveSpawner.Instance.ResetScore();
             }
         }
+    }
+
+    public void ReloadScene()
+    {
+        Debug.Log("Reloading scene!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     private void Pulse(Vector3 center)
